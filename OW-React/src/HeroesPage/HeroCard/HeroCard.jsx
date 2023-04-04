@@ -1,16 +1,19 @@
 import React from 'react';
-import {Card, CardMedia} from "@mui/material";
+import {Box, Card, CardMedia, Typography} from "@mui/material";
 
-const HeroCard = ({image}) => {
+const HeroCard = ({name, image}) => {
     return (
-        <Card>
-            <CardMedia
-                component="img"
-                height="100"
-                image={image}
-                alt="Hero image"
-            />
-        </Card>
+        <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <Card>
+                <CardMedia
+                    component="img"
+                    height="90"
+                    image={image}
+                    alt="Hero image"
+                />
+            </Card>
+            <Typography sx={{marginTop: "10px"}}>{name}</Typography>
+        </Box>
     );
 };
 
