@@ -4,8 +4,16 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import HeaderWrapper from "./HeaderWrapper.jsx";
 import PlayerPage from "./PlayersPage/PlayersPage.jsx";
 import HeroesDetailsPage from "./HeroesDetailsPage/HeroesDetailsPage.jsx";
+import languageContext from "./languageContext.jsx";
+import {useState} from "react";
 
 function App() {
+    const [language, setLanguage] = useState("en-us");
+    const languageList = ["en-us", "fr-fr", "de-de", "es-es", "it-it", "ja-jp", "ko-kr", "pl-pl", "pt-br", "ru-ru", "zh-tw"];
+
+    const changeLanguage = (newLanguage) => {
+        setLanguage(newLanguage);
+    }
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -23,7 +31,9 @@ function App() {
 
   return (
       <>
-          <RouterProvider router={router} />
+          <languageContext.Provider value={{ language, changeLanguage, languageList }}>
+              <RouterProvider router={router} />
+          </languageContext.Provider>
       </>
   )
 }
