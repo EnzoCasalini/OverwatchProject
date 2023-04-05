@@ -21,6 +21,9 @@ const Links = () => {
             <Link to="/gameModes" style={{color: "#031950", fontWeight: "bold"}}>
                 GameModes
             </Link>
+            <Link to="/profile" style={{color: "#031950", fontWeight: "bold"}}>
+                Profile
+            </Link>
         </Box>
     );
 };
