@@ -7,6 +7,7 @@ import HeroesDetailsPage from "./HeroesDetailsPage/HeroesDetailsPage.jsx";
 import languageContext from "./languageContext.jsx";
 import {useState} from "react";
 import MapsPage from "./MapsPage/MapsPage.jsx";
+import GameModesPage from "./GameModesPage/GameModesPage.jsx";
 
 function App() {
     const [language, setLanguage] = useState("en-us");
@@ -24,7 +25,7 @@ function App() {
                     <Route path="/heroes" element={<HeroesPage/>}/>
                     <Route path="/heroes/:heroKey" element={<HeroesDetailsPage/>}/>
                     <Route path="/maps" element={<MapsPage/>}/>
-                    <Route path="/gameModes" element={<div>gameModes</div>}/>
+                    <Route path="/gameModes" element={<GameModesPage/>}/>
                 </Route>
             </>
         )

@@ -4,22 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {Backdrop} from "@mui/material";
 import {Fade} from "@mui/material";
-import {Box, CardActionArea, Chip} from '@mui/material';
-import {useNavigate} from "react-router-dom";
+import {Box, CardActionArea} from '@mui/material';
 
-function MapCard({name, screenshot, gamemodes, location, country_code}) {
+function GameModeCard({name, description, screenshot}) {
     const [open, setOpen] = useState(false);
-    const navigate = useNavigate();
 
     const handleOpen = () => {
         open ? setOpen(false) : setOpen(true);
     };
-
-    // const gotoMode = (mode) => {
-    //     <GameModeCard name={}/>
-    // };
 
     return (
         <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -130,22 +123,12 @@ function MapCard({name, screenshot, gamemodes, location, country_code}) {
                                     }}
                                 />
                                 <Typography gutterBottom variant="h5" component="div" textAlign={"center"}
-                                            sx={{postion:'relative', paddingTop: '20px', margin:'0', fontSize: '2vw', fontWeight:'bold'}}
+                                            sx={{postion:'relative', paddingTop: '20px', paddingBottom:'20px',margin:'0', fontSize: '2vw', fontWeight:'bold'}}
                                 >
                                     {name}
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="div" textAlign={"center"}>
-                                    {location}, {country_code}
-                                </Typography>
-                                <Typography variant="body2" sx={{marginTop: '20px'}}>
-                                    {gamemodes.map((item) => (
-                                        <Chip
-                                            label={item.charAt(0).toUpperCase() + item.slice(1)}
-                                            onClick={() => navigate(`/gamemodes`)}
-                                            color="primary"
-                                            sx={{borderRadius:'5px', backgroundColor:'orange', margin:'5px'}}
-                                        ></Chip>
-                                    ))}
+                                <Typography gutterBottom component="div" textAlign={"center"}>
+                                    {description}
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -156,4 +139,4 @@ function MapCard({name, screenshot, gamemodes, location, country_code}) {
     );
 }
 
-export default MapCard;
+export default GameModeCard;
