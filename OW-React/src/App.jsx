@@ -10,10 +10,6 @@ import HeroesPage from "./HeroesPage/HeroesPage.jsx";
 // import HeroesDetailsPage from "./HeroesPage/HeroesDetailsPage.jsx";
 import languageContext from "./languageContext.jsx";
 
-function HeroesDetailsPage() {
-  return null;
-}
-
 function App() {
     const [language, setLanguage] = useState("en-us");
     const languageList = ["en-us", "fr-fr", "de-de", "es-es", "it-it", "ja-jp", "ko-kr", "pl-pl", "pt-br", "ru-ru", "zh-tw"];
