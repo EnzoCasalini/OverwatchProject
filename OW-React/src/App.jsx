@@ -6,6 +6,7 @@ import PlayerPage from "./PlayersPage/PlayersPage.jsx";
 import HeroesDetailsPage from "./HeroesDetailsPage/HeroesDetailsPage.jsx";
 import languageContext from "./languageContext.jsx";
 import {useState} from "react";
+import MapsPage from "./MapsPage/MapsPage.jsx";
 
 function App() {
     const [language, setLanguage] = useState("en-us");
@@ -22,20 +23,20 @@ function App() {
                     <Route path="/" element={<PlayerPage/>}/>
                     <Route path="/heroes" element={<HeroesPage/>}/>
                     <Route path="/heroes/:heroKey" element={<HeroesDetailsPage/>}/>
-                    <Route path="/maps" element={<div>maps</div>}/>
+                    <Route path="/maps" element={<MapsPage/>}/>
                     <Route path="/gameModes" element={<div>gameModes</div>}/>
                 </Route>
             </>
         )
     );
 
-  return (
-      <>
-          <languageContext.Provider value={{ language, changeLanguage, languageList }}>
-              <RouterProvider router={router} />
-          </languageContext.Provider>
-      </>
-  )
+    return (
+        <>
+            <languageContext.Provider value={{ language, changeLanguage, languageList }}>
+                <RouterProvider router={router} />
+            </languageContext.Provider>
+        </>
+    )
 }
 
 export default App
