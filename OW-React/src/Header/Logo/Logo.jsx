@@ -7,7 +7,7 @@ const Logo = () => {
     return (
         <Link to="/">
             <Box sx={{
-                width: "200px",
+                width: "170px",
                 height: "70px",
             }}>
                 <Box component="img" alt="PokedexLogo" src={logo} sx={{
