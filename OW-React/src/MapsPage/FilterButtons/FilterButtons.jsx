@@ -13,14 +13,15 @@ const FilterButtons = ({filterMaps, filter, modes}) => {
     });
 
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', width: '70%', maxWidth: '70%' }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '70%', maxWidth: '70%' }}>
             <ThemeProvider theme={theme}>
-                {modes.map((mode) => (
+                {modes.map((mode, index) => (
                     <Button
-                        variant={filter === {mode} ? 'contained' : 'outlined'}
+                        key={index}
+                        variant={filter === mode.title ? 'contained' : 'outlined'}
                         onClick={() => filterMaps(`${mode.title}`)}
                         color={'primary'}
-                        sx={{ width: '120px', marginBottom: '20px'}}
+                        sx={{ width: '200px', marginBottom: '20px', marginRight: {sx: '0', md: '10px'} }}
                     >
                         {mode.title}
                     </Button>

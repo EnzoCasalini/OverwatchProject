@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import MapCard from "./MapCard/MapCard.jsx";
 import {Box, Grid, Paper} from "@mui/material";
-import Header from "../Header/Header.jsx";
 import FilterButtons from "../MapsPage/FilterButtons/FilterButtons.jsx";
 
 function MapsPage() {
-    const [data, setData] = useState([]);
     const [maps, setMaps] = useState([]);
     const [filter, setFilter] = useState('all');
     const gameModes = [
@@ -24,11 +22,13 @@ function MapsPage() {
     useEffect(() => {
         fetch('https://overfast-api.tekrop.fr/maps')
             .then((response) => response.json())
-            .then((data) => setData(data))
+            .then((data) => setMaps(data))
             .catch((error) => console.error(error));
     }, []);
 
     const filterMaps = (mode) => setFilter(mode);
+
+    const filteredMaps = filter === 'all' ? maps : maps.filter((map) => map.gamemodes.includes(filter));
 
     return (
         <Box
@@ -44,10 +44,9 @@ function MapsPage() {
             }}>
             <FilterButtons filterMaps={filterMaps} filter={filter} modes={gameModes}/>
             <Grid container spacing={2} rowSpacing={2} alignItems="center" justifyContent="center">
-                {data
-                    .filter((ow_map) => ow_map.gamemodes[0] === filter || filter === 'all')
-                    .map((ow_map) => (
-                    <Grid item>
+                {filteredMaps
+                    .map((ow_map, index) => (
+                    <Grid item key={index}>
                         <MapCard name={ow_map.name} screenshot={ow_map.screenshot} gamemodes={ow_map.gamemodes} location={ow_map.location} country_code={ow_map.country_code}/>
                     </Grid>
                 ))}
