@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import PlayerSummary from "./PlayerSummary/PlayerSummary.jsx";
 import HeroDetails from "./HeroDetails/HeroDetails.jsx";
-import { Box, CircularProgress } from '@mui/material';
+import {Box, CircularProgress, Typography} from '@mui/material';
 
 const PlayerPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -37,16 +37,7 @@ const PlayerPage = () => {
                 alignItems: 'center',
             }}
         >
-            <h1
-                sx={{
-                    fontFamily: 'Montserrat, sans-serif',
-                    color: 'white',
-                    fontSize: '2rem',
-                    marginBottom: '20px'
-                }}
-            >
-                Search for a player (ex: Brutus-22331)
-            </h1>
+            <Typography variant={'h1'} fontSize='22px' fontWeight='bold' sx={{marginBottom: '20px'}}>Search for a player (ex: Brutus-22331)</Typography>
             <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}

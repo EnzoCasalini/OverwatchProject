@@ -7,6 +7,7 @@ import HeroesDetailsPage from "./HeroesDetailsPage/HeroesDetailsPage.jsx";
 import languageContext from "./languageContext.jsx";
 import {useState} from "react";
 import MapsPage from "./MapsPage/MapsPage.jsx";
+import {createTheme, ThemeProvider} from "@mui/material";
 
 function App() {
     const [language, setLanguage] = useState("en-us");
@@ -15,6 +16,17 @@ function App() {
     const changeLanguage = (newLanguage) => {
         setLanguage(newLanguage);
     }
+
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: '#f3f4ff',
+            },
+            secondary: {
+                main: '#2B4348',
+            }
+        },
+    });
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -32,9 +44,11 @@ function App() {
 
     return (
         <>
-            <languageContext.Provider value={{ language, changeLanguage, languageList }}>
-                <RouterProvider router={router} />
-            </languageContext.Provider>
+            <ThemeProvider theme={theme}>
+                <languageContext.Provider value={{ language, changeLanguage, languageList }}>
+                    <RouterProvider router={router} />
+                </languageContext.Provider>
+            </ThemeProvider>
         </>
     )
 }
