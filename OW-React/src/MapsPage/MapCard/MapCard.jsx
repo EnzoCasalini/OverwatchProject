@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {Backdrop} from "@mui/material";
 import {Fade} from "@mui/material";
 import {Box, CardActionArea, Chip} from '@mui/material';
 
@@ -18,8 +17,8 @@ function MapCard({name, screenshot, gamemodes, location, country_code}) {
     return (
         <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             <Card sx={{
-                width: "15vw",
-                height: '20vh',
+                width: "200px",
+                height: '150px',
                 marginBottom: '10px',
             }}>
                 <CardActionArea
@@ -56,7 +55,7 @@ function MapCard({name, screenshot, gamemodes, location, country_code}) {
                             }}
                         />
                         <Typography gutterBottom variant="h5" component="div" textAlign={"center"}
-                            sx={{postion:'relative', paddingTop: '100px', margin:'0', fontSize: '1.2vw', fontWeight:'bold'}}
+                            sx={{postion:'relative', paddingTop: '100px', margin:'0', fontSize: '14px', fontWeight:'bold'}}
                         >
                             {name}
                         </Typography>
@@ -120,8 +119,9 @@ function MapCard({name, screenshot, gamemodes, location, country_code}) {
                                     {location}, {country_code}
                                 </Typography>
                                 <Typography variant="body2" sx={{marginTop: '20px'}}>
-                                    {gamemodes.map((item) => (
+                                    {gamemodes.map((item, index) => (
                                         <Chip
+                                            key={index}
                                             label={item}
                                             color="primary"
                                             sx={{borderRadius:'5px', backgroundColor:'orange', margin:'5px'}}

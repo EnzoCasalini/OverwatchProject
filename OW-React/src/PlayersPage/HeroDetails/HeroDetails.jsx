@@ -22,18 +22,19 @@ const HeroDetails = ({ playerInfo }) => {
                 Heroes played the most in {gameMode === 'quickplay' ? 'Quick Play' : 'Competitive'}
             </Typography>
             <ButtonGroup sx={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                <Button onClick={() => handleGameModeChange('quickplay')} variant={gameMode === 'quickplay' ? 'contained' : 'outlined'}>Quick Play</Button>
-                <Button onClick={() => handleGameModeChange('competitive')} variant={gameMode === 'competitive' ? 'contained' : 'outlined'}>Competitive</Button>
+                <Button onClick={() => handleGameModeChange('quickplay')} variant={gameMode === 'quickplay' ? 'contained' : 'outlined'} color={'primary'}>Quick Play</Button>
+                <Button onClick={() => handleGameModeChange('competitive')} variant={gameMode === 'competitive' ? 'contained' : 'outlined'} color={'primary'}>Competitive</Button>
             </ButtonGroup>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 {playerInfo &&
                     heroes.map((hero, index) => (
                         <Box key={index} sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem' }}>
                             <Typography sx={{ marginRight: '1rem' }}>
-                                <Link to={`/heroes/${hero.hero}`} onClick={() => handleHeroClick(hero.hero)}>{hero.hero}</Link>
+                                <Link to={`/heroes/${hero.hero}`} style={{color: "#f3f4ff", fontWeight: "bold"}} onClick={() => handleHeroClick(hero.hero)}>{hero.hero.charAt(0).toUpperCase() + hero.hero.slice(1)}</Link>
                             </Typography>
                             <LinearProgress
                                 variant='determinate'
+                                color={'secondary'}
                                 value={(hero.value / heroStats.values[0].value) * 100}
                                 sx={{ flexGrow: 1 }}
                             />
