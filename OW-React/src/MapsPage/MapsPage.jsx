@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MapCard from "./MapCard/MapCard.jsx";
-import {Box, Grid, Paper} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 import FilterButtons from "../MapsPage/FilterButtons/FilterButtons.jsx";
 
 function MapsPage() {

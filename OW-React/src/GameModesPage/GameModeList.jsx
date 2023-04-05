@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Grid} from "@mui/material";
+import MapsCard from "../MapsPage/MapsList/MapsCard/MapsCard.jsx";
 
 function GameModesList() {
     const [data, setData] = useState([]);

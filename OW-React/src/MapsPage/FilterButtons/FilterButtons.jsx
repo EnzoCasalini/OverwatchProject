@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, createTheme, ThemeProvider} from "@mui/material";
+import {Box, Button} from "@mui/material";
 
 const FilterButtons = ({filterMaps, filter, modes}) => {
 

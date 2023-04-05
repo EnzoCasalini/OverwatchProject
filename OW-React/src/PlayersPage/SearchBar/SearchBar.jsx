@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, TextField, Button, createTheme, ThemeProvider } from '@mui/material';
+import { Box, TextField, Button } from '@mui/material';
 
 const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, loading }) => {
 
