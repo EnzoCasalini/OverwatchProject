@@ -2,6 +2,7 @@ import './App.css'
 import HeroesPage from "./HeroesPage/HeroesPage.jsx";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import HeaderWrapper from "./HeaderWrapper.jsx";
+import PlayerPage from "./PlayersPage/PlayersPage.jsx";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
                     <Route path="/heroes" element={<HeroesPage />}/>
                     <Route path="/maps" element={<div>maps</div>}/>
                     <Route path="/gameModes" element={<div>gameModes</div>}/>
+                    <Route path="/profile" element={<PlayerPage/>}/>
                 </Route>
             </>
         )
