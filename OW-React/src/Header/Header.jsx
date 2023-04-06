@@ -84,8 +84,8 @@ const Header = () => {
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
-                                paddingBottom: "0",
                             }}
+                            MenuListProps={{ sx: { pb: '0' } }}
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ backgroundColor: "#f3f4ff" }}>
