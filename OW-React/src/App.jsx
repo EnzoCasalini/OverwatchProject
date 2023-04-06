@@ -8,10 +8,11 @@ import {
 import HeaderWrapper from './HeaderWrapper.jsx'
 import PlayerPage from './PlayersPage/PlayersPage.jsx'
 import HeroesDetailsPage from './HeroesDetailsPage/HeroesDetailsPage.jsx'
+import GameModesPage from "./GameModesPage/GameModesPage.jsx";
+import MapsPage from './MapsPage/MapsPage.jsx'
 import languageContext from './languageContext.jsx'
 import heroesContext from './heroesContext'
 import { useState, useEffect } from 'react'
-import MapsPage from './MapsPage/MapsPage.jsx'
 import { createTheme, ThemeProvider } from '@mui/material'
 
 function App() {
@@ -64,7 +65,7 @@ function App() {
           <Route path="/heroes" element={<HeroesPage />} />
           <Route path="/heroes/:heroKey" element={<HeroesDetailsPage />} />
           <Route path="/maps" element={<MapsPage />} />
-          <Route path="/gameModes" element={<div>gameModes</div>} />
+          <Route path="/gameModes" element={<GameModesPage />} />
         </Route>
       </>
     )
