@@ -11,6 +11,7 @@ const PlayerPage = () => {
   const [playerInfo, setPlayerInfo] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+    const [playerSearched, setPlayerSearched] = useState('');
 
   const handleSearch = async (searchTerm) => {
     try {
@@ -19,6 +20,7 @@ const PlayerPage = () => {
       const response = await fetch(`https://overfast-api.tekrop.fr/players/${searchTerm}`)
       const data = await response.json()
       setPlayerInfo(data)
+        setPlayerSearched(searchTerm);
     } catch (err) {
       setError(err.response.data)
     } finally {
@@ -94,7 +96,7 @@ const PlayerPage = () => {
           <PlayerSummary playerInfo={playerInfo} />
           <HeroDetails playerInfo={playerInfo} />
           <PlayerRanks playerInfo={playerInfo} />
-          <PlayerStats player_id={searchTerm} />
+          <PlayerStats player_id={playerSearched} />
         </Box>
       )}
     </Box>
