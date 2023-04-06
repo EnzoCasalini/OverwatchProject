@@ -29,6 +29,7 @@ const PlayerPage = () => {
         const search = localStorage.getItem('search');
         if (search)
         {
+            setSearchTerm(search);
             handleSearch(search);
         }
     }, []);
