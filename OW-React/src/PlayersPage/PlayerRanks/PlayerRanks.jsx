@@ -71,7 +71,7 @@ const PlayerRanks = ({ playerInfo }) => {
         marginTop: '20px',
       }}
     >
-      <Typography variant="h5" component="h3" gutterBottom>
+      <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom>
         Rankings :
       </Typography>
       <Box

@@ -25,7 +25,7 @@ const HeroDetails = ({ playerInfo }) => {
 
   return (
     <Box sx={{ padding: '1rem', marginTop: '30px' }}>
-      <Typography variant="h5" component="h3" gutterBottom>
+      <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom>
         Heroes played the most in {gameMode === 'quickplay' ? 'Quick Play' : 'Competitive'}
       </Typography>
       <ButtonGroup sx={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>

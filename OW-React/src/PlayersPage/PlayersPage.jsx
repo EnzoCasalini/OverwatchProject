@@ -4,6 +4,7 @@ import PlayerSummary from './PlayerSummary/PlayerSummary.jsx'
 import HeroDetails from './HeroDetails/HeroDetails.jsx'
 import { Box, CircularProgress, Typography } from '@mui/material'
 import PlayerRanks from './PlayerRanks/PlayerRanks'
+import PlayerStats from './PlayerStats/PlayerStats'
 
 const PlayerPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -93,6 +94,7 @@ const PlayerPage = () => {
           <PlayerSummary playerInfo={playerInfo} />
           <HeroDetails playerInfo={playerInfo} />
           <PlayerRanks playerInfo={playerInfo} />
+          <PlayerStats player_id={searchTerm} />
         </Box>
       )}
     </Box>
