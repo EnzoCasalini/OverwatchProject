@@ -5,13 +5,27 @@ import HeaderWrapper from "./HeaderWrapper.jsx";
 import PlayerPage from "./PlayersPage/PlayersPage.jsx";
 import HeroesDetailsPage from "./HeroesDetailsPage/HeroesDetailsPage.jsx";
 import languageContext from "./languageContext.jsx";
-import {useState} from "react";
+import heroesContext from './heroesContext';
+import {useState, useEffect} from "react";
 import MapsPage from "./MapsPage/MapsPage.jsx";
 import {createTheme, ThemeProvider} from "@mui/material";
 
 function App() {
     const [language, setLanguage] = useState("en-us");
     const languageList = ["en-us", "fr-fr", "de-de", "es-es", "it-it", "ja-jp", "ko-kr", "pl-pl", "pt-br", "ru-ru", "zh-tw"];
+    const [heroes, setHeroes] = useState([]);
+
+
+    const getHeroes = async () => {
+        const response = await fetch('https://overfast-api.tekrop.fr/heroes');
+        const data = await response.json();
+        setHeroes(data);
+    };
+
+    useEffect(() => {
+        getHeroes();
+    }, []);
+
 
     const changeLanguage = (newLanguage) => {
         setLanguage(newLanguage);
@@ -46,7 +60,9 @@ function App() {
         <>
             <ThemeProvider theme={theme}>
                 <languageContext.Provider value={{ language, changeLanguage, languageList }}>
-                    <RouterProvider router={router} />
+                    <heroesContext.Provider value={{ heroes }}>
+                        <RouterProvider router={router} />
+                    </heroesContext.Provider>
                 </languageContext.Provider>
             </ThemeProvider>
         </>

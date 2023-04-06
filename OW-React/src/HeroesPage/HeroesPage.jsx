@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Box,Grid} from '@mui/material';
 import HeroCard from './HeroCard/HeroCard.jsx';
 import FilterButtons from "./FilterButtons/FilterButtons.jsx";
+import heroesContext from '../heroesContext.jsx';
 
 const HeroesPage = () => {
-    const [heroes, setHeroes] = useState([]);
+    const { heroes } = useContext(heroesContext);
     const [filter, setFilter] = useState('all');
-
-    const getHeroes = async () => {
-        const response = await fetch('https://overfast-api.tekrop.fr/heroes');
-        const data = await response.json();
-        setHeroes(data);
-    };
-
-    useEffect(() => {
-        getHeroes();
-    }, []);
 
     const filterHeroes = (role) => setFilter(role);
 

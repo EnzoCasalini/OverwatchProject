@@ -17,7 +17,7 @@ const HeroCard = ({name, image, role}) => {
                             height="90"
                             src={PlaceholderImage}
                             alt="OW logo as placeholder"
-                            style={{ objectFit: "contain" }}
+                            sx={{ objectFit: "contain" }}
                         />
                     )}
                     <CardMedia
@@ -25,7 +25,7 @@ const HeroCard = ({name, image, role}) => {
                         height="90"
                         image={image}
                         alt="Hero image"
-                        style={{ display: loaded ? "block" : "none" }}
+                        sx={{ display: loaded ? "block" : "none" }}
                         onLoad={() => setLoaded(true)}
                     />
                 </Card>
