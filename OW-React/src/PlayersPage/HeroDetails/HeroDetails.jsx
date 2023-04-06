@@ -1,23 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Typography, Box, LinearProgress, ButtonGroup, Button} from '@mui/material';
 import { Link } from 'react-router-dom';
+import heroesContext from '../../heroesContext';
+import HeroPortrait from './HeroPortrait/HeroPortrait';
 
 const HeroDetails = ({ playerInfo }) => {
     const [gameMode, setGameMode] = useState('quickplay');
     const [selectedHero, setSelectedHero] = useState('');
+    const { heroes } = useContext(heroesContext);
+
     const handleGameModeChange = (mode) => {
         setGameMode(mode);
     };
 
     const heroStats = gameMode === 'quickplay' ? playerInfo.stats.pc.quickplay.heroes_comparisons.time_played : playerInfo.stats.pc.competitive.heroes_comparisons.time_played;
-    const heroes = heroStats.values.slice(0, 5);
+    const heroesList = heroStats.values.slice(0, 5);
 
     const handleHeroClick = (heroName) => {
         setSelectedHero(heroName);
     };
 
     return (
-        <Box sx={{ padding: '1rem' }}>
+        <Box sx={{ padding: '1rem', marginTop: '30px' }}>
             <Typography variant='h5' component='h3' gutterBottom>
                 Heroes played the most in {gameMode === 'quickplay' ? 'Quick Play' : 'Competitive'}
             </Typography>
@@ -27,11 +31,16 @@ const HeroDetails = ({ playerInfo }) => {
             </ButtonGroup>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 {playerInfo &&
-                    heroes.map((hero, index) => (
+                    heroesList.map((hero, index) => (
                         <Box key={index} sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem' }}>
-                            <Typography sx={{ marginRight: '1rem' }}>
-                                <Link to={`/heroes/${hero.hero}`} style={{color: "#f3f4ff", fontWeight: "bold"}} onClick={() => handleHeroClick(hero.hero)}>{hero.hero.charAt(0).toUpperCase() + hero.hero.slice(1)}</Link>
-                            </Typography>
+                            <Link to={`/heroes/${hero.hero}`} onClick={() => handleHeroClick(hero.hero)}>
+                                <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                    <HeroPortrait heroes={heroes} heroKey={hero.hero} />
+                                    <Typography sx={{ marginRight: '1rem', color: "#f3f4ff", fontWeight: "bold" }}>
+                                        {hero.hero.charAt(0).toUpperCase() + hero.hero.slice(1)}
+                                    </Typography>
+                                </Box>
+                            </Link>
                             <LinearProgress
                                 variant='determinate'
                                 color={'secondary'}
