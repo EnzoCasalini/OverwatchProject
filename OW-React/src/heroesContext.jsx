@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const heroesContext = React.createContext();
+const heroesContext = React.createContext()
 
-export default heroesContext;
+export default heroesContext
