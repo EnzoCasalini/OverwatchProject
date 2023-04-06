@@ -3,6 +3,7 @@ import SearchBar from './SearchBar/SearchBar'
 import PlayerSummary from './PlayerSummary/PlayerSummary.jsx'
 import HeroDetails from './HeroDetails/HeroDetails.jsx'
 import { Box, CircularProgress, Typography } from '@mui/material'
+import PlayerRanks from './PlayerRanks/PlayerRanks'
 
 const PlayerPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -91,6 +92,7 @@ const PlayerPage = () => {
         >
           <PlayerSummary playerInfo={playerInfo} />
           <HeroDetails playerInfo={playerInfo} />
+          <PlayerRanks playerInfo={playerInfo} />
         </Box>
       )}
     </Box>
