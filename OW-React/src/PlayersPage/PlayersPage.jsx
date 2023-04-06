@@ -23,6 +23,7 @@ const PlayerPage = () => {
       setPlayerSearched(searchTerm)
     } catch (err) {
       setError(err.response.data)
+        setPlayerInfo(null);
     } finally {
       localStorage.setItem('search', searchTerm)
       setLoading(false)
@@ -100,7 +101,7 @@ const PlayerPage = () => {
             </Box>
         ) : (
             <Box sx={{marginTop: '20px'}}>
-                <Typography fontSize='18px' fontWeight='bold' align='center' color={'#f3f4ff'}>Player Not Found. His career might be private.</Typography>
+                <Typography fontSize='18px' fontWeight='bold' align='center' color={'#f3f4ff'}>Player Not Found. He either doesn't exist or his career is in private.</Typography>
             </Box>
         )}
     </Box>
