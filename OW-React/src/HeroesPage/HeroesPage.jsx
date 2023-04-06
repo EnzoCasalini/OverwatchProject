@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Box} from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
+import {Box,Grid} from '@mui/material';
 import HeroCard from './HeroCard/HeroCard.jsx';
 import FilterButtons from "./FilterButtons/FilterButtons.jsx";
 
@@ -38,7 +37,7 @@ const HeroesPage = () => {
             <FilterButtons filterHeroes={filterHeroes} filter={filter}/>
             <Grid
                 container
-                spacing={7}
+                spacing={4}
                 rowSpacing={4}
                 alignItems='center'
                 justifyContent='center'
@@ -46,7 +45,7 @@ const HeroesPage = () => {
             >
                 {filteredHeroes.map((hero, index) => {
                     return (
-                        <Grid key={index}>
+                        <Grid key={index} item>
                             <HeroCard
                                 name={hero.name}
                                 image={hero.portrait}

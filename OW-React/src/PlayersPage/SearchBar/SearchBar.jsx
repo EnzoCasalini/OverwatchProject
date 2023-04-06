@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, TextField, Button, createTheme, ThemeProvider } from '@mui/material';
+import { Box, TextField, Button } from '@mui/material';
 
 const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, loading }) => {
 
@@ -24,7 +24,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, loading }) => {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={handleSearch}
+                onClick={() => handleSearch(searchTerm)}
                 disabled={!searchTerm || loading}
                 sx={{ width: '90px' }}
             >

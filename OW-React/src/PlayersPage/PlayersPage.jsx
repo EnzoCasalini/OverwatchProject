@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import PlayerSummary from "./PlayerSummary/PlayerSummary.jsx";
 import HeroDetails from "./HeroDetails/HeroDetails.jsx";
@@ -10,7 +10,7 @@ const PlayerPage = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const handleSearch = async () => {
+    const handleSearch = async (searchTerm) => {
         try {
             setLoading(true);
             setError(null);
@@ -20,9 +20,19 @@ const PlayerPage = () => {
         } catch (err) {
             setError(err.response.data);
         } finally {
+            localStorage.setItem('search', searchTerm);
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        const search = localStorage.getItem('search');
+        if (search)
+        {
+            setSearchTerm(search);
+            handleSearch(search);
+        }
+    }, []);
 
     return (
         <Box
