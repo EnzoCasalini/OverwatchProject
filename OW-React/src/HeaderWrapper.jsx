@@ -1,14 +1,14 @@
-import React from 'react';
-import Header from "./Header/Header.jsx";
-import {Outlet} from "react-router-dom";
+import React from 'react'
+import Header from './Header/Header.jsx'
+import { Outlet } from 'react-router-dom'
 
 const HeaderWrapper = () => {
-    return (
-        <>
-            <Header/>
-            <Outlet/>
-        </>
-    );
-};
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
+}
 
-export default HeaderWrapper;
+export default HeaderWrapper
