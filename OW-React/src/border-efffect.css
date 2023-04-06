@@ -1,0 +1,17 @@
+.border-top__left,
+.border-top__right {
+    position: absolute;
+    top: -1px;
+    width: 20%;
+    height: 1px;
+    background-color: #f3f4ff;
+    z-index: 2;
+}
+
+.border-top__left {
+    left: -1px;
+}
+
+.border-top__right {
+    right: -1px;
+}
