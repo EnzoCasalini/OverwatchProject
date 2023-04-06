@@ -24,7 +24,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, loading }) => {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={handleSearch}
+                onClick={() => handleSearch(searchTerm)}
                 disabled={!searchTerm || loading}
                 sx={{ width: '90px' }}
             >

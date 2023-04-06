@@ -106,7 +106,7 @@ const Header = () => {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
                         {pages.map((page, index) => (
-                            <Box key={index}>
+                            <Box key={index} sx={{paddingTop: '5px'}}>
                                 <Links page={page} margin="15px"/>
                             </Box>
                         ))}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HeroDetails = ({ playerInfo }) => {
     const [gameMode, setGameMode] = useState('quickplay');
+    const [selectedHero, setSelectedHero] = useState('');
     const handleGameModeChange = (mode) => {
         setGameMode(mode);
     };
