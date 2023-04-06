@@ -60,7 +60,7 @@ const PlayerRanks = ({ playerInfo }) => {
 
   useEffect(() => {
     renderRanks(playerInfo.summary.competitive.pc)
-  }, [playerInfo]);
+  }, [playerInfo])
 
   return (
     <Box
@@ -71,7 +71,7 @@ const PlayerRanks = ({ playerInfo }) => {
         marginTop: '20px',
       }}
     >
-      <Typography variant="h5" component="h3" fontWeight="bold" color={"#f3f4ff"} gutterBottom>
+      <Typography variant="h5" component="h3" fontWeight="bold" color={'#f3f4ff'} gutterBottom>
         Rankings :
       </Typography>
       <Box

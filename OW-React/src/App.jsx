@@ -8,7 +8,7 @@ import {
 import HeaderWrapper from './HeaderWrapper.jsx'
 import PlayerPage from './PlayersPage/PlayersPage.jsx'
 import HeroesDetailsPage from './HeroesDetailsPage/HeroesDetailsPage.jsx'
-import GameModesPage from "./GameModesPage/GameModesPage.jsx";
+import GameModesPage from './GameModesPage/GameModesPage.jsx'
 import MapsPage from './MapsPage/MapsPage.jsx'
 import languageContext from './languageContext.jsx'
 import heroesContext from './heroesContext'
