@@ -3,7 +3,7 @@ import MapCard from './MapCard/MapCard.jsx'
 import { Box, Grid } from '@mui/material'
 import FilterButtons from '../MapsPage/FilterButtons/FilterButtons.jsx'
 
-function MapsPage() {
+const MapsPage = () => {
   const [maps, setMaps] = useState([])
   const [filter, setFilter] = useState('all')
   const gameModes = [
