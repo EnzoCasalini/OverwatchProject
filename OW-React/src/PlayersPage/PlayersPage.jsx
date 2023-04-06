@@ -23,7 +23,7 @@ const PlayerPage = () => {
       setPlayerSearched(searchTerm)
     } catch (err) {
       setError(err.response.data)
-        setPlayerInfo(null);
+      setPlayerInfo(null)
     } finally {
       localStorage.setItem('search', searchTerm)
       setLoading(false)
@@ -84,26 +84,28 @@ const PlayerPage = () => {
           {error}
         </Box>
       )}
-        {playerInfo && playerInfo.stats !== null ? (
-            <Box
-                sx={{
-                    marginTop: '20px',
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
-                <PlayerSummary playerInfo={playerInfo} />
-                <HeroDetails playerInfo={playerInfo} />
-                <PlayerRanks playerInfo={playerInfo} />
-                <PlayerStats player_id={playerSearched} />
-            </Box>
-        ) : (
-            <Box sx={{marginTop: '20px'}}>
-                <Typography fontSize='18px' fontWeight='bold' align='center' color={'#f3f4ff'}>Player Not Found. He either doesn't exist or his career is in private.</Typography>
-            </Box>
-        )}
+      {playerInfo && playerInfo.stats !== null ? (
+        <Box
+          sx={{
+            marginTop: '20px',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <PlayerSummary playerInfo={playerInfo} />
+          <HeroDetails playerInfo={playerInfo} />
+          <PlayerRanks playerInfo={playerInfo} />
+          <PlayerStats player_id={playerSearched} />
+        </Box>
+      ) : (
+        <Box sx={{ marginTop: '20px' }}>
+          <Typography fontSize="18px" fontWeight="bold" align="center" color={'#f3f4ff'}>
+            Player Not Found. He either doesn't exist or his career is in private.
+          </Typography>
+        </Box>
+      )}
     </Box>
   )
 }
