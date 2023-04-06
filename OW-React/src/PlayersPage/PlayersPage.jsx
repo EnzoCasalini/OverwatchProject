@@ -83,22 +83,26 @@ const PlayerPage = () => {
           {error}
         </Box>
       )}
-      {playerInfo && (
-        <Box
-          sx={{
-            marginTop: '20px',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <PlayerSummary playerInfo={playerInfo} />
-          <HeroDetails playerInfo={playerInfo} />
-          <PlayerRanks playerInfo={playerInfo} />
-          <PlayerStats player_id={playerSearched} />
-        </Box>
-      )}
+        {playerInfo && playerInfo.stats !== null ? (
+            <Box
+                sx={{
+                    marginTop: '20px',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+            >
+                <PlayerSummary playerInfo={playerInfo} />
+                <HeroDetails playerInfo={playerInfo} />
+                <PlayerRanks playerInfo={playerInfo} />
+                <PlayerStats player_id={playerSearched} />
+            </Box>
+        ) : (
+            <Box sx={{marginTop: '20px'}}>
+                <Typography fontSize='18px' fontWeight='bold' align='center' color={'#f3f4ff'}>Player Not Found. His career might be private.</Typography>
+            </Box>
+        )}
     </Box>
   )
 }
